@@ -1,10 +1,10 @@
 # 🎮 Game Glitch Investigator: The Impossible Guesser
 
-## 🚨 The Situation
+## The Situation
 
 This Streamlit app is a number-guessing game. The starter version intentionally contained bugs in state handling, comparison logic, user feedback, difficulty ranges, and score behavior. The repaired version separates the game rules into `logic_utils.py`, verifies them with pytest, and keeps the Streamlit layer focused on user interaction.
 
-## 🛠️ Setup
+## Setup
 
 ```bash
 python -m pip install -r requirements.txt
@@ -17,7 +17,7 @@ Run the automated tests with:
 python -m pytest -q
 ```
 
-## 🐛 Bugs investigated and repaired
+## Bugs investigated and repaired
 
 1. The starter's `logic_utils.py` contained `NotImplementedError` placeholders, so the supplied tests could not run.
 2. The starter converted the secret number to a string on alternating attempts. That caused type errors and incorrect comparisons.
@@ -25,7 +25,7 @@ python -m pytest -q
 4. The starter's hint text said “Go HIGHER” after a guess was too high and “Go LOWER” after a guess was too low, which was opposite of what the player needed.
 5. The starter initialized attempts at `1` and counted invalid guesses before validating them, producing confusing attempt counts.
 
-## ✅ Repairs
+## Repairs
 
 - Implemented `get_range_for_difficulty`, `parse_guess`, `check_guess`, and `update_score` in `logic_utils.py`.
 - Kept the secret as an integer and compared integer values consistently.
@@ -34,7 +34,7 @@ python -m pytest -q
 - Reset secret, score, attempts, status, and history together when starting a new game.
 - Added tests for winning, too-high, too-low, difficulty ranges, input parsing, and score floor behavior.
 
-## 📖 Demo Walkthrough
+## Demo Walkthrough
 
 For a reproducible example, choose **Normal** difficulty and use a debug secret of `50`:
 
@@ -44,7 +44,7 @@ For a reproducible example, choose **Normal** difficulty and use a debug secret 
 4. Enter `50`; the game reports `Win`, stops the game, and displays the final score.
 5. Select **New Game**; the score, attempts, history, and secret reset for a new round.
 
-## 🧪 Test Results
+## Test Results
 
 The current automated test suite passes:
 
@@ -54,6 +54,6 @@ The current automated test suite passes:
 
 See `test_results.txt` for the captured command output.
 
-## 🤖 AI collaboration
+## AI collaboration
 
 AI was used as a debugging teammate to inspect the starter code, explain the state and comparison bugs, suggest a refactoring plan, and propose pytest coverage. Every change was reviewed against the source code and verified with the test suite. The final project should be reviewed by the student in their own environment before submission.
